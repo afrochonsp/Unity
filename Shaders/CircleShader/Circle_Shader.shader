@@ -145,10 +145,7 @@
                     else
                     return _SecondBorderColor;
                 }
-                if(pixel.x > center.y)
-                degree = degrees(acos((pixel.y - center.x) / (0.0001 + _Distance)));
-                else
-                degree = 360 - degrees(acos((pixel.y - center.x) / (0.0001 + _Distance)));
+                degree = degrees(atan2(center.x - pixel.x, center.y - pixel.y)) + 180;
                 float bias = _BorderSize * 256.0 / 1.414 / _RealCount * radius / _Distance;
                 for (int i = 0; i < _ColorsCount; i++)
                 {
